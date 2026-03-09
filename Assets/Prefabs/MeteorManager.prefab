@@ -44,3 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d44572957a2f3a46bc317b0ee18c96d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  timeBetweenChecks: 2
+  minNumMeteors: 5
+  meteor: {fileID: 3866898087881936642, guid: 5d5720e039a6692499f8e2a329b62840, type: 3}
