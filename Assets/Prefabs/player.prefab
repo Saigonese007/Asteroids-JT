@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -5213615412918365538}
   - component: {fileID: -7467036244221831830}
   - component: {fileID: -6753818839608262401}
+  - component: {fileID: -4340572041436730344}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -268,6 +269,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6215f54515784241a37e3ebd7d01c57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  thrust: 1
-  rotationSpeed: 300
+  thrust: 2
+  rotationSpeed: 250
   maxSpeed: 15
+  missile: {fileID: 2377011543613557638, guid: cba997dbaf71fc0488e5d45850b8a6a9, type: 3}
+  shotStrength: 50
+  missileLifetime: 2
+--- !u!114 &-4340572041436730344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3763269568530098017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c527044261def7e4dbd4760edb43459f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  safeBuffer: 0.1
