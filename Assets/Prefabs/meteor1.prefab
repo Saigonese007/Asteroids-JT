@@ -145,7 +145,7 @@ MonoBehaviour:
   HP: 2
   scale: 3
   startsVelocityScale: 5
-  ExplosionSound: {fileID: 8300000, guid: 09327c19cb2117942b4137f92129cc4d, type: 3}
+  explosionSoundPrefab: {fileID: 6283383582209316251, guid: 65e25742c6d0bcf4d9649c7302820c14, type: 3}
 --- !u!50 &-156198288722696132
 Rigidbody2D:
   serializedVersion: 5

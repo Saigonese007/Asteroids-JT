@@ -9,14 +9,11 @@ public class meteorScript : MonoBehaviour
 
     public float startsVelocityScale = 5;
 
-    public AudioClip ExplosionSounds;
-
-    AudioSource audioSource;
+    public GameObject explosionSoundPrefab;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
 
 
         transform.localScale = new Vector3(scale, scale);
@@ -31,6 +28,7 @@ public class meteorScript : MonoBehaviour
     {
         if (HP <= 0)
         {
+            Instantiate(explosionSoundPrefab, transform.position, Quaternion.identity);
 
             if (scale >= 1.5f)
             {
@@ -51,9 +49,7 @@ public class meteorScript : MonoBehaviour
     {
         if (collision.CompareTag("missile"))
         {
-            Instantiate(ExplosionSounds, transform.position, Quaternion.identity);
-
-            audioSource.PlayOneShot(ExplosionSounds);
+    
 
             HP--;
             Destroy(collision.gameObject);
