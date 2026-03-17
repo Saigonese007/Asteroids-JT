@@ -11,6 +11,9 @@ public class meteorScript : MonoBehaviour
 
     public GameObject explosionSoundPrefab;
 
+    public GameObject Explosion;
+    public float explosionTime = 3;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,6 +23,8 @@ public class meteorScript : MonoBehaviour
         HP = scale;
 
         GetComponent<Rigidbody2D>().linearVelocity = Random.insideUnitCircle * startsVelocityScale;
+
+        GetComponent<SpriteRenderer>().sortingOrder = Random.Range(0,1000);
 
     }
 
@@ -40,6 +45,8 @@ public class meteorScript : MonoBehaviour
                 }
             }
 
+            GameObject NewExplosion = Instantiate(Explosion, transform.position, Quaternion.identity);
+            Destroy(NewExplosion , explosionTime);
 
             Destroy(gameObject);
         }

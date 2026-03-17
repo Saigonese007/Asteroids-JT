@@ -146,6 +146,8 @@ MonoBehaviour:
   scale: 3
   startsVelocityScale: 5
   explosionSoundPrefab: {fileID: 6283383582209316251, guid: 65e25742c6d0bcf4d9649c7302820c14, type: 3}
+  Explosion: {fileID: 4898735656897916237, guid: d006c571e69966344a93a56a6ae436cf, type: 3}
+  explosionTime: 1.5
 --- !u!50 &-156198288722696132
 Rigidbody2D:
   serializedVersion: 5

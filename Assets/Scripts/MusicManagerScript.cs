@@ -29,6 +29,9 @@ public class MusicManagerScript : MonoBehaviour
         LjudSource.loop = true;
         LjudSource.Play();
 
+
+
+
     }
 
     // Update is called once per frame
