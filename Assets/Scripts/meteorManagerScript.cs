@@ -7,10 +7,14 @@ public class meteorManagerScript : MonoBehaviour
     public int minNumMeteors = 3;
     public GameObject meteor;
 
+    meteorManagerScript manager;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         StartCoroutine("MeteorCheck");
+
+        manager = FindFirstObjectByType<meteorManagerScript>();
     }
 
     // Update is called once per frame

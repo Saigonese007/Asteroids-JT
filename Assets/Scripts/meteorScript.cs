@@ -1,4 +1,6 @@
+using TMPro;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class meteorScript : MonoBehaviour
@@ -13,6 +15,10 @@ public class meteorScript : MonoBehaviour
 
     public GameObject Explosion;
     public float explosionTime = 3;
+
+    public int kills = 0;
+
+    public TextMeshProUGUI killText;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -33,6 +39,8 @@ public class meteorScript : MonoBehaviour
     {
         if (HP <= 0)
         {
+
+
             Instantiate(explosionSoundPrefab, transform.position, Quaternion.identity);
 
             if (scale >= 1.5f)
@@ -50,6 +58,8 @@ public class meteorScript : MonoBehaviour
 
             Destroy(gameObject);
         }
+        killText.text = "Kills: " + kills;
+
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -61,5 +71,9 @@ public class meteorScript : MonoBehaviour
             HP--;
             Destroy(collision.gameObject);
         }
+    }
+    public void AddKill()
+    {
+        kills++;
     }
 }
