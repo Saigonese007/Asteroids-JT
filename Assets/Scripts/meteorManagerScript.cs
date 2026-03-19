@@ -1,5 +1,7 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
+
 
 public class meteorManagerScript : MonoBehaviour
 {
@@ -7,14 +9,20 @@ public class meteorManagerScript : MonoBehaviour
     public int minNumMeteors = 3;
     public GameObject meteor;
 
-    meteorManagerScript manager;
+    public int kills = 0;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public TextMeshProUGUI killstext;
+
+
+// Start is called once before the first execution of Update after the MonoBehaviour is created
+void Start()
     {
         StartCoroutine("MeteorCheck");
 
-        manager = FindFirstObjectByType<meteorManagerScript>();
+        killstext.text = "Kills: 0";
+
+
+
     }
 
     // Update is called once per frame
@@ -36,5 +44,11 @@ public class meteorManagerScript : MonoBehaviour
 
             yield return new WaitForSeconds(timeBetweenChecks);
         }
+    }
+
+    public void AddKill()
+    {
+        kills++;
+        killstext.text = "Kills: " + kills;
     }
 }

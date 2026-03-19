@@ -16,21 +16,23 @@ public class meteorScript : MonoBehaviour
     public GameObject Explosion;
     public float explosionTime = 3;
 
-    public int kills = 0;
+    meteorManagerScript manager;
 
-    public TextMeshProUGUI killText;
+
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
 
-
         transform.localScale = new Vector3(scale, scale);
         HP = scale;
 
+        manager = FindFirstObjectByType<meteorManagerScript>();
+
         GetComponent<Rigidbody2D>().linearVelocity = Random.insideUnitCircle * startsVelocityScale;
 
-        GetComponent<SpriteRenderer>().sortingOrder = Random.Range(0,1000);
+        GetComponent<SpriteRenderer>().sortingOrder = Random.Range(0, 1000);
 
     }
 
@@ -40,6 +42,7 @@ public class meteorScript : MonoBehaviour
         if (HP <= 0)
         {
 
+            manager.AddKill();
 
             Instantiate(explosionSoundPrefab, transform.position, Quaternion.identity);
 
@@ -47,18 +50,17 @@ public class meteorScript : MonoBehaviour
             {
                 for (int i = 0; i < 2; i++)
                 {
-                    GameObject newMeteor = Instantiate(gameObject, transform.position + new Vector3(i,i), Quaternion.identity);
+                    GameObject newMeteor = Instantiate(gameObject, transform.position + new Vector3(i, i), Quaternion.identity);
                     meteorScript newMs = newMeteor.GetComponent<meteorScript>();
                     newMs.scale = scale - 1;
                 }
             }
 
             GameObject NewExplosion = Instantiate(Explosion, transform.position, Quaternion.identity);
-            Destroy(NewExplosion , explosionTime);
+            Destroy(NewExplosion, explosionTime);
 
             Destroy(gameObject);
         }
-        killText.text = "Kills: " + kills;
 
     }
 
@@ -66,14 +68,8 @@ public class meteorScript : MonoBehaviour
     {
         if (collision.CompareTag("missile"))
         {
-    
-
             HP--;
             Destroy(collision.gameObject);
         }
-    }
-    public void AddKill()
-    {
-        kills++;
     }
 }

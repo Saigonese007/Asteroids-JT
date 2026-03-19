@@ -47,3 +47,5 @@ MonoBehaviour:
   timeBetweenChecks: 2
   minNumMeteors: 5
   meteor: {fileID: 3866898087881936642, guid: 5d5720e039a6692499f8e2a329b62840, type: 3}
+  kills: 0
+  killstext: {fileID: 2476115114764294304, guid: 4cc05f42d3976b94c8d46a37accdfd66, type: 3}
